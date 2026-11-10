@@ -103,7 +103,7 @@ const recommendations = [
     role: "MA & FEP Quality Improvement Specialist",
     linkedin: "https://www.linkedin.com/in/ltabit/"
   }
-];let recIndex=0;function showRec(){const r=recommendations[recIndex];document.getElementById('rec-avatar').textContent=String(recIndex+1).padStart(2,'0');document.getElementById('rec-quote').textContent=r.quote;document.getElementById('rec-name').textContent=r.name;const link = document.getElementById('rec-link');
+];let recIndex=0;function showRec(){const r=recommendations[recIndex]; document.getElementById('rec-avatar').textContent =   r.name.split(/\s+/).map(word => word[0]).slice(0, 2).join('').toUpperCase();document.getElementById('rec-quote').textContent=r.quote;document.getElementById('rec-name').textContent=r.name;const link = document.getElementById('rec-link');
 link.href = r.linkedin || '#';
 link.style.pointerEvents = r.linkedin ? 'auto' : 'none';document.getElementById('rec-role').textContent=r.role;document.getElementById('rec-dots').innerHTML=recommendations.map((_,i)=>'<span class="'+(i===recIndex?'active':'')+'"></span>').join('')}document.getElementById('rec-prev').addEventListener('click',()=>{recIndex=(recIndex+recommendations.length-1)%recommendations.length;showRec()});document.getElementById('rec-next').addEventListener('click',()=>{recIndex=(recIndex+1)%recommendations.length;showRec()});showRec();
 </script>
